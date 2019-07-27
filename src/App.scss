@@ -21,6 +21,12 @@
   .App-link {
     color: #61dafb;
   }
+
+  .buttonContainer {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+  }
   
   @keyframes App-logo-spin {
     from {
