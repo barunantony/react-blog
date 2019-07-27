@@ -1,35 +1,27 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { connect } from 'react-redux';
+
 import logo from './logo.svg';
 import Button from './components/button/Button';
+import * as appLogoActions from './redux/actions/appLogoActions';
 
 import './App.scss';
 
 
-function App() {
-
-  // Declare a new state variable, which we'll call "speed"
-  const [speed, setSpeed] = useState(50);
+function App({ appLogoSpeed, decreaseSpeed, increaseSpeed }) {
 
   const increaseLogoAnimationSpeed = () => {
-    if (speed <= 9) {
-      setSpeed(1);
-    } else {
-      setSpeed(speed - 5);
-    }
-    const logo = document.getElementsByClassName('App-logo')[0];
-    logo.style.animationDuration = (speed)+'s';
+    increaseSpeed();
   };
   
   const decreaseLogoAnimationSpeed = () => {
-    setSpeed(speed + 5);
-    const logo = document.getElementsByClassName('App-logo')[0];
-    logo.style.animationDuration = (speed)+'s';
+    decreaseSpeed();
   };
 
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        <img src={logo} className="App-logo" alt="logo" style={ {animationDuration: appLogoSpeed.speed+'s'} } />
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
@@ -42,7 +34,7 @@ function App() {
           Learn React
         </a>
         <div className='buttonContainer'>
-          <div>{speed}</div>
+          <div>{appLogoSpeed.speed}</div>
           <Button buttonName='increase speed' onClick={increaseLogoAnimationSpeed}/>
           <Button buttonName='decrease speed' onClick={decreaseLogoAnimationSpeed}/>
         </div>
@@ -51,4 +43,7 @@ function App() {
   );
 }
 
-export default App;
+export default connect(
+  (state) => state,
+  { ...appLogoActions }
+)(App);

@@ -1,0 +1,2 @@
+export const INCREASE_SPEED = 'INCREASE_SPEED';
+export const DECREASE_SPEED = 'DECREASE_SPEED';
