@@ -1,7 +1,7 @@
 import { createStore, combineReducers } from 'redux';
-import appLogoSpeed from './reducers/appLogoSpeed';
+import flightDetails from './reducers/flightDetails';
 
 export default createStore(combineReducers({
-    appLogoSpeed
+    flightDetails
 }), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );

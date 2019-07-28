@@ -2,9 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import './Button.scss';
 
-const Button = ({ onClick, buttonName, disabled }) => (
+const Button = ({ onClick, buttonName, disabled, classNames }) => (
   <input
-    className='button'
+    className={`button ${classNames}`}
     onClick={onClick}
     type='button'
     value={buttonName}
@@ -16,7 +16,8 @@ const Button = ({ onClick, buttonName, disabled }) => (
 Button.propTypes = {
   onClick: PropTypes.func.isRequired,
   disabled: PropTypes.bool.isRequired,
-  buttonName: PropTypes.string.isRequired
+  buttonName: PropTypes.string.isRequired,
+  classNmaes: PropTypes.string
 }
 
 Button.defaultProps = {

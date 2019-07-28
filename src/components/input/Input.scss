@@ -1,0 +1,27 @@
+@import '../../styles.scss';
+
+.inputContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    label {
+        margin: 0 32px 0 0;
+    }
+
+    .input {
+        background: $background-color-primary;
+        backdrop-filter: blur(4px);
+        min-height: 34px;
+        min-width: 230px;
+        padding: 6px;
+    }
+
+    @media screen and (max-width: $medium-max) {
+        justify-content: space-between;
+
+        label {
+            margin: 0;
+        }
+      }
+}

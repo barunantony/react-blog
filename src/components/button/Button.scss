@@ -1,12 +1,20 @@
+@import '../../styles.scss';
+
 .button {
-    min-width: 50px;
+    min-width : 50px;
     min-height: 50px;
-    box-shadow: 5px 5px 5px lightgray,
-    -5px -5px 5px lightgray,
-    5px -5px 5px lightgray,
-    -5px 5px 5px lightgray;
-    background-color: beige;
-    border-radius: 5px;
-    color: #06485a;
-    margin: 10px;
+    width: 100%;
+    box-shadow: 5px 5px 5px #d8e7f8,
+        -5px -5px 5px #d8e7f8,
+        5px -5px 5px #d8e7f8,
+        -5px 5px 5px #d8e7f8;
+    background-color: $background-color-primary;
+    border-radius   : 5px;
+    margin          : 10px;
+    font-family: Roboto;
+    font-style : normal;
+    font-weight: normal;
+    font-size  : 14px;
+    line-height: 14px;
+    color: $text-color-primary;
 }
