@@ -15,20 +15,11 @@ export const checkStateIsValid = (state, fields) => {
     let valid = [];
     if (state && fields && Array.isArray(fields)) {
         //@todo: can be improved by running parallely
-        console.log('fields', fields);
         fields.forEach(element => {
-            if (valid.length > 0) {
-                return;
-            }
-            console.log('e: ', element);
             if(Array.isArray(element.validations)) {
-                console.log('e1', element.validations);
                 element.validations.forEach(fn => {
-                    console.log('fn', fn);
                     if(typeof fn === 'function') {
-                        console.log('is a function', fn(state[element.key]));
                         if (!fn(state[element.key])) {
-                            console.log('falsyyyy');
                             valid.push({key: element.key, validation: fn.name});
                             return;
                         }
@@ -37,6 +28,5 @@ export const checkStateIsValid = (state, fields) => {
             }
         });
     }
-    console.log('valid:', valid);
-    return valid.length === 0;
+    return valid;
 };

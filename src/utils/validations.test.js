@@ -29,22 +29,31 @@ describe('Validations', () => {
     });
 
     describe('checkStateIsValid', () => {
-        it('should return false if a state with field isNotEmpty is not having value', () => {
+        it('should return array with fields failed if a state with field isNotEmpty is not having value', () => {
             const val = checkStateIsValid(
-                {'flightName': ''},
-                [{key: 'flightName', validations: [isNotEmpty]}]
+                {'flightName': '', date: '11/11/2009'},
+                [
+                    {key: 'flightName', validations: [isNotEmpty]},
+                    {key: 'date', validations: [isEmpty]},
+                ]
             );
-
-            expect(val).toBeFalsy();
+            expect(val.length).toBe(2);
+            expect(val).toEqual([
+                { key: 'flightName', validation: 'isNotEmpty' },
+                { key: 'date', validation: 'isEmpty' }
+            ]);
         });
 
-        it('should return true if a state with field isEmpty is not having value', () => {
+        it('should return empty array if a state with field isEmpty is not having value', () => {
             const val = checkStateIsValid(
-                {'flightName': ''},
-                [{key: 'flightName', validations: [isEmpty]}]
+                {'flightName': '', date: '11/11/2009'},
+                [
+                    {key: 'flightName', validations: [isEmpty]},
+                    {key: 'date', validations: [isNotEmpty]},
+                ]
             );
 
-            expect(val).toBeTruthy();
+            expect(val.length).toBe(0);
         });
     });
 });
