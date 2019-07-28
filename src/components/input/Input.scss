@@ -17,8 +17,14 @@
         padding: 6px;
     }
 
+    .inputNdError {
+        display: flex;
+        flex-direction: column;
+    }
+
     .errors {
-        display: block;
+        margin-top: 4px;
+        min-height: 16px;
     }
 
     @media screen and (max-width: $medium-max) {

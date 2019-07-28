@@ -4,16 +4,18 @@ import './Input.scss';
 
 const Input = ({ onChange, inputName, disabled, classNames, type, errors }) => (
     <div className={`inputContainer ${classNames}`}>
-        <label htmlFor="appInput">{inputName}:</label>
-        <input
-            className='input'
-            id='appInput'
-            onChange={(e) => { onChange(e);}}
-            type={type}
-            disabled={disabled}
-        >
-        </input>
-        {!!errors && <div className='errors'>{errors}</div>}
+        <label htmlFor='appInput'>{inputName}:</label>
+        <div className='inputNdError'>
+            <input
+                className='input'
+                id='appInput'
+                onChange={(e) => { onChange(e);}}
+                type={type}
+                disabled={disabled}
+            >
+            </input>
+            {<div className='errors'>{errors}</div>}
+        </div>
     </div>
 )
 

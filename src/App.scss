@@ -29,6 +29,8 @@
       justify-content: space-around;
       text-align     : center;
       width          : 50%;
+      position: absolute;
+      bottom: 15px;
     }
 
     .flightNumber {
@@ -55,6 +57,7 @@
 
       .searchButton {
         width: calc(100% - 18px);
+        margin: 0;
       }
     }
   }
