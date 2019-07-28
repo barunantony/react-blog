@@ -17,6 +17,10 @@
         padding: 6px;
     }
 
+    .errors {
+        display: block;
+    }
+
     @media screen and (max-width: $medium-max) {
         justify-content: space-between;
 

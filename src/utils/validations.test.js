@@ -1,4 +1,5 @@
 import { checkStateIsValid, isEmpty, isNotEmpty } from './validations';
+import { emptyFieldErrorMessage } from "../constants";
 
 describe('Validations', () => {
     describe('isEmpty', () => {
@@ -39,8 +40,8 @@ describe('Validations', () => {
             );
             expect(val.length).toBe(2);
             expect(val).toEqual([
-                { key: 'flightName', validation: 'isNotEmpty' },
-                { key: 'date', validation: 'isEmpty' }
+                { key: 'flightName', validation: emptyFieldErrorMessage },
+                { key: 'date', validation: emptyFieldErrorMessage }
             ]);
         });
 

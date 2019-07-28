@@ -1,3 +1,5 @@
+import { emptyFieldErrorMessage } from "../constants";
+
 export const isEmpty = (value) => {
     return  value === undefined || (!isNaN(value) && (value === '' || value === null));
 };
@@ -5,6 +7,11 @@ export const isEmpty = (value) => {
 export const isNotEmpty = (value) => {
     return  !isEmpty(value);
 };
+
+const messages = {
+    isNotEmpty : emptyFieldErrorMessage,
+    isEmpty : emptyFieldErrorMessage
+}
 
 /**
  * 
@@ -20,7 +27,7 @@ export const checkStateIsValid = (state, fields) => {
                 element.validations.forEach(fn => {
                     if(typeof fn === 'function') {
                         if (!fn(state[element.key])) {
-                            valid.push({key: element.key, validation: fn.name});
+                            valid.push({key: element.key, validation: messages[fn.name]});
                             return;
                         }
                     }

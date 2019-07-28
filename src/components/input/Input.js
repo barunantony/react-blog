@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import './Input.scss';
 
-const Input = ({ onChange, inputName, disabled, classNames, type }) => (
+const Input = ({ onChange, inputName, disabled, classNames, type, errors }) => (
     <div className={`inputContainer ${classNames}`}>
         <label htmlFor="appInput">{inputName}:</label>
         <input
@@ -13,6 +13,7 @@ const Input = ({ onChange, inputName, disabled, classNames, type }) => (
             disabled={disabled}
         >
         </input>
+        {!!errors && <div className='errors'>{errors}</div>}
     </div>
 )
 
@@ -21,7 +22,8 @@ Input.propTypes = {
     disabled: PropTypes.bool.isRequired,
     inputName: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired,
-    classNames: PropTypes.string
+    classNames: PropTypes.string,
+    errors: PropTypes.string
 }
 
 Input.defaultProps = {

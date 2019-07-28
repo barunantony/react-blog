@@ -1,0 +1,1 @@
+export const emptyFieldErrorMessage = 'Please enter a value';
