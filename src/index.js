@@ -1,15 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import './index.scss';
 import App from './App';
+import { Blog, Home } from './components';
 import * as serviceWorker from './serviceWorker';
 import store from './redux/store';
 
 ReactDOM.render(
     <Provider store={store}>
-        <App />
+        <Router>
+            <Route path="/" component={Home} />
+            <Route path="/test" component={() => <div>blank</div>} />
+            <Route path="/blog" component={Blog} />
+        </Router>
     </Provider>,
     document.getElementById('root'));
 
