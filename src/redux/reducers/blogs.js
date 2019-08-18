@@ -1,4 +1,5 @@
 import { CATEGORIES } from '../../constants';
+import { ADD_BLOG } from '../actionTypes';
 
 const initialState = {
     data: {
@@ -21,6 +22,18 @@ const initialState = {
 
 export default function(state=initialState, action) {
     switch(action.type) {
+        case ADD_BLOG: {
+            return {
+                ...state,
+                data: {
+                    ...state.data,
+                    blogs: [
+                        ...state.data.blogs,
+                        action.payload
+                    ]
+                }
+            };
+        }
         default:
             return state;
     }

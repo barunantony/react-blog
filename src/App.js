@@ -1,11 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import * as flightSearchActions from './redux/actions/flightSearchActions';
 import { checkStateIsValid, isNotEmpty } from './utils/validations';
 
 import { Button, Input } from './components';
-import flight from './assets/flight.svg';
+// import flight from './assets/flight.svg';
 import './App.scss';
 
 const validateSearch = (data) => {
@@ -47,7 +46,7 @@ function App({ data, updateFlightNumber, reportFlightNumberError}) {
       <header className='header'>Find your flights here...</header>
       <img
         className='fit-picture'
-        src={flight}
+        // src={flight}
         alt='flight' />
       <form className='formContainer' onSubmit={
         (e) => {
@@ -70,10 +69,10 @@ function App({ data, updateFlightNumber, reportFlightNumberError}) {
 const mapDispatchToProps = (dispatch) => {
   return {
     updateFlightNumber: (flightNumber) => {
-      dispatch(flightSearchActions.changeFightNumber(flightNumber))
+      // dispatch(flightSearchActions.changeFightNumber(flightNumber))
     },
     reportFlightNumberError: (errors) => {
-      dispatch(flightSearchActions.updateFlightNumberValidationError(errors));
+      // dispatch(flightSearchActions.updateFlightNumberValidationError(errors));
     }
   };
 };
