@@ -1,3 +1,44 @@
 .hamburgerIcon {
     width: 30px;
 }
+
+
+.menuSidebar {
+    width: 30%;
+    height: 100%;
+    opacity: 0.9;
+    position: fixed;
+    background-color: #dfd9d9;  
+}
+
+.slideIn {
+    left: 0;
+    animation-duration: 2s;
+    animation-name: slidein;
+}
+
+.slideOut {
+    left: -100%;
+    animation-duration: 5s;
+    animation-name: slideout;
+}
+    
+@keyframes slidein {
+    from {
+        left: -100%;
+    }
+
+    to {
+        left: 0;
+    }
+}
+
+@keyframes slideout {
+    to {
+        left: -100%;
+    }
+
+    from {
+        left: 0;
+    }
+}
