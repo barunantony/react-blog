@@ -9,8 +9,9 @@ import './BlogForm.scss';
 
 function BlogForm({ addBlog, history}) {
   const onSubmit = (e) => {
+      var formData = new FormData(e.target);
       addBlog({
-            title: `${e.target[0].value} Added Title`,
+            title: `${formData.get('Title')} Added Title`,
             content: 'Added blog content...',
             datePosted: '12/12/2018',
             category: [CATEGORIES.technical]

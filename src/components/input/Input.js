@@ -9,6 +9,7 @@ const Input = ({ onChange, inputName, disabled, classNames, type, errors }) => (
             <input
                 className='input'
                 id='appInput'
+                name={inputName}
                 onChange={(e) => { onChange(e);}}
                 type={type}
                 disabled={disabled}
@@ -20,6 +21,7 @@ const Input = ({ onChange, inputName, disabled, classNames, type, errors }) => (
 )
 
 Input.propTypes = {
+    name: PropTypes.string,
     onChange: PropTypes.func.isRequired,
     disabled: PropTypes.bool.isRequired,
     inputName: PropTypes.string.isRequired,
