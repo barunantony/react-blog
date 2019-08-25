@@ -2,15 +2,17 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { Menu } from '../index';
 
 import './Home.scss';
 
 const Home = ({ blogTitles }) => {
-    const links = blogTitles.map((title, i) => (<Link to={`/blog?id=${i}`}>{title}</Link>));
+    const links = blogTitles.map((title, i) => 
+        (<Link key={`blog-id-${i}`} to={`/blog?id=${i}`}>{title}</Link>));
+    
+    links.push(<Link key='add-blog' to='/add-blog'>Add new blog</Link> );
+
     return (
         <div className='homeContainer'>
-            <Menu />
             <h1>Home</h1>
             {links}
         </div>

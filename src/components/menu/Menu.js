@@ -1,25 +1,48 @@
 import React, { useState } from 'react'
 
-import Hamburger_icon from '../../assets/Hamburger_icon.svg';
+import { Home } from '../index'; 
 
+import Hamburger_icon from '../../assets/Hamburger_icon.svg';
 import './Menu.scss';
 
-const Menu = () => {
-    const [toggle, setToggle] = useState(false);
+const Menu = ({ history, location }) => {
+    const [toggle, setToggle] = useState(null);
 
-    const sliderDisplay = toggle ? 'slideIn' : 'slideOut';
+    history.listen((location, action) => {
+        // close side menu if route changed
+        setToggle(false);
+        const sidebarParam = location.search
+            .slice(1)
+            .split('&')
+            .filter((queryParam) => (queryParam.split('=')[0]=== 'sidebar'));
+
+        if(
+            sidebarParam && sidebarParam.length > 0 &&
+            (sidebarParam[0].split('=')[1] === 'open')
+        ) {
+            setToggle(true);
+        }
+    });
+
+    const sliderDisplay = (toggle === null) ? '' : (toggle ? 'slideIn' : 'slideOut');
 
     return (
         <div>
             <img
+                alt='munu icon'
                 className='hamburgerIcon'
-                onClick={() => {setToggle(!toggle);}}
+                onClick={() => {setToggle(true);}}
                 src={Hamburger_icon}
             >
             </img>
             <div className={`menuSidebar ${sliderDisplay}`}>
                 SlideIn
+                <Home />
             </div>
+            {
+                toggle && 
+                <div className='overlay' onClick={() => {setToggle(false);}}></div>
+            }
         </div>
     );
 };

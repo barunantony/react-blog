@@ -4,15 +4,14 @@ import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import './index.scss';
-import App from './App';
-import { Blog, BlogForm, Home } from './components';
+import { Blog, BlogForm, Menu } from './components';
 import * as serviceWorker from './serviceWorker';
 import store from './redux/store';
 
 ReactDOM.render(
     <Provider store={store}>
         <Router>
-            <Route path="/" component={Home} />
+            <Route path="/" component={Menu} />
             <Route path="/test" component={() => <div>blank</div>} />
             <Route path="/blog" component={Blog} />
             <Route path="/add-blog" component={BlogForm} />

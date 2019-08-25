@@ -6,20 +6,24 @@
 .menuSidebar {
     width: 30%;
     height: 100%;
-    opacity: 0.9;
     position: fixed;
-    background-color: #dfd9d9;  
+    background-color: #f5ecece8;  
+    z-index: 2;
+    top: 0;
+    display: none;
 }
 
 .slideIn {
+    display: unset;
     left: 0;
-    animation-duration: 2s;
+    animation-duration: 1s;
     animation-name: slidein;
 }
 
 .slideOut {
+    display: unset;
     left: -100%;
-    animation-duration: 5s;
+    animation-duration: 3s;
     animation-name: slideout;
 }
     
@@ -41,4 +45,15 @@
     from {
         left: 0;
     }
+}
+
+.overlay {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    opacity: 0.5;
+    z-index: 1;
+    background: #dfd9d917;
 }

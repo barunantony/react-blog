@@ -7,14 +7,17 @@ import { CATEGORIES } from '../../constants';
 import { Button, Input } from '../index';
 import './BlogForm.scss';
 
-function BlogForm({ addBlog}) {
-  const onSubmit = () => {
+function BlogForm({ addBlog, history}) {
+  const onSubmit = (e) => {
       addBlog({
-            title: 'Added Title',
+            title: `${e.target[0].value} Added Title`,
             content: 'Added blog content...',
             datePosted: '12/12/2018',
             category: [CATEGORIES.technical]
         });
+
+      history.push('/?sidebar=open');
+
   };
 
   return (
@@ -23,14 +26,14 @@ function BlogForm({ addBlog}) {
       <form className='formContainer' onSubmit={
         (e) => {
           e.preventDefault();
-          onSubmit();
+          onSubmit(e);
         }
       }>
         <Input
           inputName="Title"
           onChange={() => {}}
         />
-        <Button buttonName='Add Blog' onClick={onSubmit} />
+        <Button buttonName='Add Blog' type='submit' />
       </form>
     </div>
   );
