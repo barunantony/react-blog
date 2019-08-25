@@ -7,13 +7,13 @@ import './Home.scss';
 
 const Home = ({ blogTitles }) => {
     const links = blogTitles.map((title, i) => 
-        (<Link key={`blog-id-${i}`} to={`/blog?id=${i}`}>{title}</Link>));
+        (<Link className='blogLink' key={`blog-id-${i}`} to={`/blog?id=${i}`}>{title}</Link>));
     
-    links.push(<Link key='add-blog' to='/add-blog'>Add new blog</Link> );
+    links.push(<Link className='addBlogLink' key='add-blog' to='/add-blog'>Add new blog</Link> );
 
     return (
         <div className='homeContainer'>
-            <h1>Home</h1>
+            <h3>Navigation</h3>
             {links}
         </div>
     );

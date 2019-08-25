@@ -27,7 +27,7 @@ const Menu = ({ history, location }) => {
     const sliderDisplay = (toggle === null) ? '' : (toggle ? 'slideIn' : 'slideOut');
 
     return (
-        <div>
+        <div className='menuHeader'>
             <img
                 alt='munu icon'
                 className='hamburgerIcon'
@@ -35,8 +35,8 @@ const Menu = ({ history, location }) => {
                 src={Hamburger_icon}
             >
             </img>
+            <h1>Blog</h1>
             <div className={`menuSidebar ${sliderDisplay}`}>
-                SlideIn
                 <Home />
             </div>
             {

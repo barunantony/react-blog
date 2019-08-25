@@ -2,3 +2,48 @@
     display: flex;
     flex-direction: column;
 }
+
+.blogLink, .addBlogLink {
+    height: 50px;
+    line-height: 50px;
+    width: 100%;
+    position: relative;
+    text-decoration: none;
+    text-align: center;
+    font-size: 18px;
+    color: white;
+    border-radius: 4px;
+    transition: background-image 150ms ease;
+    margin-bottom: 2px;
+}
+
+.blogLink {
+    height: 30px;
+    line-height: 30px;
+}
+
+.blogLink:before, .addBlogLink:before,
+    .blogLink:after, .addBlogLink:after {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    // background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+    border-radius: 4px;
+    left: 0;
+    z-index: -1;
+    transition: opacity 200ms ease;
+}
+
+.blogLink:before, .blogLink:after {
+    background-image: linear-gradient(120deg, #8fd3f4 0%, #84fab0 100%);
+}
+
+.addBlogLink:before, .addBlogLink:after {
+    background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+}
+
+.addBlogLink {
+    position: absolute;
+    bottom: 0;
+}

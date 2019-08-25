@@ -23,7 +23,8 @@ Button.propTypes = {
 
 Button.defaultProps = {
     disabled: false,
-    type: 'button'
+    type: 'button',
+    classNames: ''
 }
 
 export default Button;

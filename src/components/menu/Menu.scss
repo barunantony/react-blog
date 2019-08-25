@@ -1,5 +1,16 @@
+.menuHeader {
+    display: flex;
+    flex-direction: row;
+
+    h1 {
+        width: 100%;
+        text-align: center;
+    }
+}
+
 .hamburgerIcon {
     width: 30px;
+    height: 30px;
 }
 
 
@@ -7,7 +18,7 @@
     width: 30%;
     height: 100%;
     position: fixed;
-    background-color: #f5ecece8;  
+    background-color: #f9f9f9e8;  
     z-index: 2;
     top: 0;
     display: none;

@@ -9,11 +9,10 @@ const Blog = ({ blogs, match, location }) => {
 
     return (
         <div className='blogContainer'>
-            <h1>Blog</h1>
-            <div>{title}</div>
-            <div>{content}</div>
-            <div>{datePosted}</div>
-            <div>{categories}</div>
+            <div className='title'>{title}</div>
+            <div className='content'>{content}</div>
+            <div className='dateposted'>{datePosted}</div>
+            <div className='categories'>{categories}</div>
         </div>
     );
 }
