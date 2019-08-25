@@ -6,7 +6,7 @@ import Hamburger_icon from '../../assets/Hamburger_icon.svg';
 import './Menu.scss';
 
 const Menu = ({ history, location }) => {
-    const [toggle, setToggle] = useState(null);
+    const [toggle, setToggle] = useState(true);
 
     history.listen((location, action) => {
         // close side menu if route changed
@@ -24,7 +24,7 @@ const Menu = ({ history, location }) => {
         }
     });
 
-    const sliderDisplay = (toggle === null) ? '' : (toggle ? 'slideIn' : 'slideOut');
+    const sliderDisplay = (toggle ? 'slideIn' : 'slideOut');
 
     return (
         <div className='menuHeader'>
